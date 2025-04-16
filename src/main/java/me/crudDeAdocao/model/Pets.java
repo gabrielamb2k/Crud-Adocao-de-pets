@@ -1,8 +1,14 @@
 package me.crudDeAdocao.model;
 
 import jakarta.persistence.*;
+import lombok.*;
 import me.crudDeAdocao.enums.Tipo;
 
+@Builder
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table(name="pets")
 public class Pets {
@@ -21,6 +27,6 @@ public class Pets {
     private String description;
 
     @ManyToOne
-    @JoinColumn(name ="users_id")
-    private User users;
+    @JoinColumn(name ="users_id" , nullable = true)
+    private Users users;
 }
