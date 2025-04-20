@@ -2,6 +2,7 @@ package me.crudDeAdocao.controllers.response;
 
 import lombok.Builder;
 import me.crudDeAdocao.enums.Tipo;
+import me.crudDeAdocao.model.Users;
 
 @Builder
 public record PetResponseDTO(
@@ -9,6 +10,5 @@ public record PetResponseDTO(
          String name,
          Tipo tipo,
         Integer age,
-       String description,
-       String userName
+       String description
 ){}

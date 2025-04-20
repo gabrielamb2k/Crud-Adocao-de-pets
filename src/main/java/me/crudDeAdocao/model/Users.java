@@ -1,5 +1,6 @@
 package me.crudDeAdocao.model;
 
+
 import jakarta.persistence.*;
 import lombok.*;
 

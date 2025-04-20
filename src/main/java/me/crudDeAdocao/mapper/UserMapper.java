@@ -18,6 +18,7 @@ public class UserMapper {
                 .toList();
 
         return Users.builder()
+                .id(requestDTO.id())
                 .name(requestDTO.name())
                 .email(requestDTO.email())
                 .petsList(pets)

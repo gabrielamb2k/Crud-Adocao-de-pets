@@ -11,9 +11,10 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping(name = "users")
+@RequestMapping("users")
 @AllArgsConstructor
 public class UsersController {
 
@@ -30,7 +31,7 @@ public class UsersController {
         return ResponseEntity.ok(usersService.listUsers()
                 .stream()
                 .map(UserMapper::toUserResponseDto)
-                .toList());
+                .collect(Collectors.toList()));
     }
 
     @GetMapping("/listar/{id}")
@@ -53,6 +54,7 @@ public class UsersController {
 
     @PutMapping("/update/{id}")
     public ResponseEntity<UserResponseDTO> update(@RequestBody UserRequestDTO requestDTO, @PathVariable Long id){
+
         return usersService.update(id, UserMapper.toUser(requestDTO))
                 .map(users -> ResponseEntity.ok(UserMapper.toUserResponseDto(users)))
                 .orElse(ResponseEntity.notFound().build());
